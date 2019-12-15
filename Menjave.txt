@@ -1,0 +1,5 @@
+﻿Menjave
+Obvezna naloga
+Napiši funkcijo zamenjaj(s, i, j), ki v podanem s zamenja i-ti in j-ti element. Funkcija spreminja podani seznam in ne vrne ničesar.
+
+Napiši tudi funkcijo zamenjan(s, i, j), ki vrne seznam, ki vsebuje iste elemente kot s, le da sta i-ti in j-ti element zamenjana. Funkcija ne spreminja podanega seznama.

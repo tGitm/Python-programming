@@ -1,0 +1,19 @@
+﻿Avtobusi
+Podan je razred Potnik, ki opisuje nesrečnika, ki so mu ukradli kolo in se mora voziti z ljubljanskim avtobusom. Potnik vsebuje podatek o zaporedni številki postaje, na kateri bo vstopil (če bo na avtobusu kaj prostora) in izstopil (prek trupel, če bo treba).
+
+class Potnik:
+    def __init__(self, vstop, izstop):
+        self.vstop = vstop
+        self.izstop = izstop
+Razred Potnik pusti pri miru.
+
+Obvezna naloga
+Sprogramiraj razred Avtobus.
+
+Konstruktor sprejme en argument, namreč maksimalno število potnikov.
+Metoda kapaciteta() vrne maksimalno število potnikov (torej tisto, kar smo podali konstruktorju).
+Metoda zasedenost() vrne število potnikov, ki so se uspeli stlačiti na avtobus.
+Metoda stevilka_avtobusa() vrne 18.
+Metoda vstop(potniki) sprejme seznam potniki, ki vsebuje objekta tipa Potnik. Na avtobus natovori toliko potnikov z začetka seznama, kolikor jih še gre nanj. Kot rezultat vrne seznam potnikov, ki so ostali na postaji.
+Metoda izstop(stevilka_postaje) iz avtobusa odstrani potnike, ki izstopijo na postaji s podano številko.
+Metoda postaja(stevilka_postaje, potniki) prejme številko postaje in potnike, ki čakajo na njej. Iz avtobusa odstrani potnike, ki gredo ven in vanj doda potnike, ki uspejo priti noter. (Pri tem se razume, da pokliče prejšnji dve metodi.) Kot rezultat vrne seznam potnikov, ki se niso uspeli stlačiti na avtobus.

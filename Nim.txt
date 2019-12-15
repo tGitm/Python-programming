@@ -1,0 +1,31 @@
+﻿NIM Naloga
+Ker smo se ravno učili o funkcijah, boš moral (ali morala, če si v manjšini) napisati kup funkcij. Na koncu bodo vodile - čeprav ne po najkrajši poti - v program, ki bo znal (dobro) igrati igro Nim.
+
+Nim se začne tako, da v nekaj vrstic postavimo nekaj kovancev, na primer tako:
+
+1 (4)  * * * *
+2 (7)  * * * * * * *
+3 (5)  * * * * *
+4 (6)  * * * * * *
+Igralca izmenično jemljeta kovance. Ko je igralec na potezi, lahko iz poljubne vrstice (vendar le ene) vzame poljubno število kovancev. Zmaga igralec, ki vzame zadnji kovanec. Če prvi igralec vzame, recimo, tri kovance iz druge vrstice, dobimo
+
+1 (4)  * * * *
+2 (4)  * * * *
+3 (5)  * * * * *
+4 (6)  * * * * * *
+Obvezna naloga
+Napiši torej naslednje funkcije:
+
+najvecja_potenca(n) vrne največjo potenco števila 2, ki je manjša ali enaka podanemu števila n. Klic najvecja_potenca(22) vrne 16, saj bi bilo 32 že preveč. Klic najvecja_potenca(32) pa vrne 32. Število n je pozitivno realno število. Število naračunaj sam; uporaba modula math ali česa podobnega v tej funkciji je prepovedana.
+razbij(n) vrne seznam potenc števila 2, ki se seštejejo v podano število n; vsaka potenca lahko nastopa le enkrat. Klic razbij(22) vrne [16, 4, 2]. Števila naj bodo urejena v padajočem vrstnem redu. Nalogo reši tako, da s prejšnjo funkcijo poiščeš največjo potenco ter jo dodaš v seznam in jo odšteješ od števila n. To ponavljaš, dokler ne dobiš 0. Morda za začetek razmisli, kako bi to nalogo rešil ročno, potem pa jo sprogramiraj na enak način. (Če te naloga (upravičeno) spominja na pretvarjanje v dvojiški zapis, naj te to ne moti. Tudi s tem, kako neučinkovito je takšno pretvarjanje, se ne ukvarjaj.)
+vsebuje(s, x) vrne True, če seznam s vsebuje elemnt x in False, če ga ne. Nekaj podobnega smo že delali na vajah, samo da bo zdaj, s funkcijami, lažje.
+razlika(s, t) prejme dva seznama in vrne nov seznam, ki vsebuje elemente, ki se pojavijo v enem od podanih seznamov, ne pa v obeh. Klic razlika([16, 4, 2], [4, 1]) vrne [16, 2, 1] (v tem ali poljubnem drugem vrstnem redu), saj so to števila, ki se pojavijo le v prvem ali v drugem seznamu. Vsak element seznama s (ali t) se v tem seznamu pojavi le enkrat. Pri reševanju se ti morda (a ne nujno) splača uporabiti funkcijo, ki si jo sprogramiral prejle.
+razbij_seznam(s) prejme seznam števil in vrne seznam seznamov njihovih razbitij. Klic razbij([22, 5, 13]) vrne [[16, 4, 2], [4, 1], [8, 4, 1]]. To ne bi smelo biti težko: pripravimo nov seznam, nato za vsak element seznama s izračunamo razbitje in ga dodamo v ta, novi seznam, ki ga potem na koncu vrnemo.
+vsota(s) izračuna vsoto števil v podanem seznamu. To seveda že poznamo s predavanj, vendar vseeno sprogramiraj še enkrat. Sam(a). Zato, ker ti bo pomagala razmišljati pri naslednji funkciji, ki bo skoraj enaka funkciji vsota! (Čeprav seveda vemo, kako se to dela, povejmo, ker nam bo pomagalo pri naslednji funkciji. Vzamemo število 0. K 0 prištejemo prvi element; dobimo, seveda, prvi element. Nato k temu prištejemo drugi element. K tej vsoti prištejemo tretjega. K temu prištejemo četrtega...)
+zdruzi_sezname(s) prejme seznam seznamov (takšen, kot ga vrača funkcija razbij_seznam) in vrne vse elemente, ki se pojavijo lihokrat. To naredi s trikom. Pripravimo prazen seznam. Izračunamo razliko tega seznama in prvega seznama (zato smo si pripravili funkcijo razlika); rezultat bo seveda prvi seznam. Nato izračuna razliko te "razlike" in drugega seznama. Nato razliko tega, kar je pravkar naračunal, in tretjega seznama. Izračuna razliko tega, kar je pravkar naračunal, in četrtega seznama. Izračuna razliko tega, kar je pravkar naračunal, in petega seznama ... in tako naprej, dokler je treba. Še enkrat: ta funkcija bo zelo podobna funkciji vsota, le da tu ne seštevamo.
+Poleg tega napiši funkcijo
+
+poteza_racunalnik(s), ki prejme seznam, v katerem je zapisano, koliko kovancev je v posamezni vrstici. Funkcija vrne naključno (a legalno!) potezo, ki jo bo naredil računalnik. Naključna pomeni naključna, ne vedno ista. Potezo vrne v obliki dveh števil; prva je številka vrstice (pri tem ima prva vrstica številko 0, ne 1!), druga pa število kovancev, ki jih želi odstraniti iz te vrstice. Pri tem si lahko pomagaš s funkcijo randint(a, b), ki vrne naključno število med a in vključno b; da jo lahko uporabiš, moraš na začetku programa napisati from random import *. Spomni se tudi, da dolžino seznama s dobiš z len(s).
+Na dnu naloge je program, ki ga lahko dodaš na konec svojega programa, pa boš lahko igral to igro proti računalniku.
+
+Zadnja funkcija očitno nima nobene zveze z onimi prej. To je zato, ker račualnik igra neumno. Funkcije od prej ti pridejo prav, če hočeš narediti program, ki bo (skoraj) vedno premagal človeka. To pa je dodatna naloga.

@@ -1,0 +1,30 @@
+﻿Temperaturne razlike
+Tole so izmišljene najvišje dnevne temperature v nekaj slovenskih mestih v desetih avgustovskih dneh leta 2014. Ali 2015, pozabil sem. Glede na to, da so izmišljene, niti ni posebej pomembno. :)
+
+ljubljana = [28, 30, 25, 28, 30, 32, 35, 28, 25, 27]
+maribor = [30, 28, 26, 34, 26, 32, 34, 30, 28, 28]
+celje = [28, 32, 30, 31, 32, 28, 27, 26, 25, 25]
+koper = [32, 35, 35, 31, 32, 34, 35, 30, 28, 28]
+kranj = [28, 27, 30, 32, 28, 27, 26, 28, 30, 25]
+Teh pet vrstic skopiraj na začetek svojega programa.
+
+Tisti, ki že znate kaj več: pri reševanju nalog ne uporabljaj indeksov. Resno. Koristno je, da se naučite pravilno programirati. :)
+
+Ogrevanje
+Teh programov ti ni potrebno oddati, lahko pa jih napišeš, da te bodo postopoma vodili do rešitve naloge.
+
+Izpiši temperature v Ljubljani.
+Izpiši temperature (pare) v Ljubljani in Mariboru.
+Izpiši razlike med temperaturami v Ljubljani in Mariboru po dnevih.
+Izpiši absolutne vrednosti razlik med temperaturami v Ljubljani in Mariboru po dnevih.
+Obvezna naloga
+Napiši program, ki izpiše največjo razliko med dnevno temperaturo v Ljubljani in Mariborom ter katero mesto je bilo na tisti dan toplejše. V gornjem primeru je razlika 6, toplejši pa je Maribor, torej program izpiše
+
+6 Maribor
+Da preveriš ali program res deluje, spremeni prvi dve vrstici v
+
+ljubljana = [30, 28, 26, 34, 26, 32, 34, 30, 28, 28]
+maribor = [28, 30, 25, 28, 30, 32, 35, 28, 25, 27]
+in program mora izpisati
+
+6 Ljubljana

@@ -1,0 +1,73 @@
+﻿Potniki
+Ocena 6
+Imamo seznam imen krajev in njihovih koordinat. Recimo takšen.
+
+[('Brežice', 68.66, 7.04),
+ ('Lenart', 85.20, 78.75),
+ ('Rateče', -65.04, 70.04)
+]
+Napiši funkcijo koordict(kraji), ki vrne slovar, katerega ključi so imena krajev, vrednosti pa pripadajoče koordinate, na primer
+
+{'Brežice`: (68.66, 7.04),
+'Lenart': (85.20, 78.75),
+'Rateče': (-65.04, 70.04)
+}
+Napiši funkcijo razdalje(kraj, kraji), ki prejme ime kraja in seznam krajev (to je, seznam trojk z imenom in koordinatami). Vrne množico parov: drugi elementi so imena vseh krajev iz kraji, razen podanega kraja, prvi element pa kvadrati razdalij od podanega kraja do teh krajev. Klic razdalje("Lenart", kraji) vrne
+
+{(5415.895699999999, 'Brežice'),
+ (22647.921700000003, 'Rateče')
+}
+Računaj torej razdalje tako kot običajno, le rezultata ne koreni. Zakaj tako? Razdalje bomo potrebovali zato, da kraje uredimo po oddaljenosti. Pri tem pa je vseeno, ali so te korenjene ali ne. V praktičnih programih lahko, posebej če se zelo zelo mudi (računalniška grafika, igre...) tako prihranimo nekaj časa.
+
+Napiši funkcijo sosedi(n, kraj, kraji), ki vrne množico z n kraji, ki so najbližji podanemu kraju kraj. Argument kraji so spet trojke.
+
+Napiši funkcijo povezave(n, kraji), ki vrne slovar, katerega kljui so vsi kraji, pripadajoče vrednosti pa množice n najbližjih krajev vsakemu kraju. Če bi imeli v seznamu malo več krajev, bi klic povezave(3, kraji), lahko vrnil
+
+{'Brežice': {'Ribnica', 'Lenart', 'Rogaška Slatina'},
+ 'Lenart': {'Brežice', 'Ljutomer', 'Rogaška Slatina'},
+ 'Ljutomer': {'Brežice', 'Lenart', 'Rogaška Slatina'},
+ 'Rateče': {'Ribnica', 'Brežice', 'Rogaška Slatina'}
+}
+Če imamo kraje po vsej Sloveniji in želimo pet najbližjih krajev vsakega kraja, vrne slovar, katerega ključi so kraji na sliki, pripadajoče vrednosti pa množice vseh krajev, proti katerim kažejo črtice.
+
+
+
+Napiši funkcijo dvosmerno(d). Predstavljajmo si, da d vsebuje vse gornje povezave. Funkcija dvosmerno(d) naj sestavi nov slovar, pri katerem v množico sosedov vsakega kraja doda še kraje, ki "kažejo" nanj.
+
+Pri ključu "Trbovlje" imamo množico {"Velenje", "Celje", "Žalec", "Laško","Radeče"}. Vendar na Trbovlje kažejo tudi povezave iz Gornjega Gradu in Litije, zato dvosmerno vrne slovar, v katerem ključu "Trbovlje" pripada vrednost {"Velenje", "Celje", "Žalec", "Laško","Radeče", "Gornji Grad", "Litija"}.
+
+
+
+Ocena 7
+Napiši funkcijo veljavna_pot(pot, povezave), ki kot argument prejme neko pot skozi kraje, predstavljeno s seznamom njihovih imen, ter povezave, kakršne vračata funkciji povezave oz dvosmerno. Funkcija preveri, ali je pot veljavna. Pot je veljavna, če gre le prek povezav, ki se nahajajo v slovarju (se pravi, po povezavah, ki so na gornji sliki). Kraji na poti se smejo ponavljati, nikoli pa se ne smemo vrniti v kraj, iz katerega smo ravnokar prišli. Pot ["Ljubljana", "Litija", "Domžale", "Ljubljana", "Litija", "Trbovlje"] je veljavna, pot ["Ljubljana", "Litija", "Ljubljana", "Domžale"]` pa ne, ker smo se iz Litije takoj vrnili nazaj v Ljubljano.
+
+Napiši funkcijo izberi(izbor, prepovedan), ki vrne naključno izbran element iz seznama ali množice izbor, ki ni enak prepovedan. izbor bo običajno množica nizov in prepovedan bo eden od njih, vendar ne računaj na to. (Namig: funkcija random.choice(s) vrne naključni element seznama s. Če bi radi naključni element množice, bi bilo to množico najpametneje spremeniti v seznam.)
+
+Napiši funkcijo potnik(zacetek, korakov, povezave), ki prejme ime začetnega kraja, število korakov in slovar povezav (kot v prejšnjih funkcijah). Funkcija vrne naključno (a veljavno!) pot v obliki seznama imen krajev. Seznam bo vseboval korakov + 1 elementov.
+
+
+Ocena 8
+Napiši funkcijo prestej(s), ki prejme seznam s in vrne slovar, katerega ključi so elementi seznama, pripadajoče vrednosti števila, ki povedo, kolikokrat se je ta element pojavil v seznamu. (Da, dovoljeno je uporabljati poljubne funkcije, ki jih najdete v Pythonovih vdelanih modulih).
+
+Napiši funkcijo pristej_slovar(s, t), ki k slovarju s prišteje slovar t in ne vrne ničesar. Vrednosti v obeh slovarjih so števila. Funkcija k slovarju s doda vse ključe, ki so v t in jih ni bilo v s ter njihove pripadajoče vrednosti. Pri ključih, ki se pojavijo v obeh slovarjih, pa je v s vsota pripadajočih vrednosti. (Da, funkcija počne isto kot v domači nalogi Županske volitve, in jo lahko skopiraš od ondod.)
+
+Napiši funkcijo pomembnost(potnikov, korakov, povezave, normaliziraj). Argument potnikov je število potnikov, korakov je število korakov, ki jih naredi vsak od njih, in povezave so povezave. Funkcija torej potnikov-krat sestavi naključno pot (uporabljaj funkcije, ki jih že imaš!), da naredijo korakov korakov po podanih povezavah. Kot rezultat vrne slovar, katerega ključi so imena krajev, vrednosti pa povedo, kolikokrat so vsi potniki skupaj obiskali posamezni kraj.
+
+Argument normaliziraj je lahko True ali False. Če je False, funkcija pove, kolikokrat je bil obiskan vsak kraj. Če je True, pa število obiskov deli s skupnim številom obiskov vseh krajev, tako da je vsota vseh vrednosti v slovarju enaka 1.
+
+
+Ocena 9
+Napiši funkcijo razsiri(kraji, povezave), ki dobi množico krajev in slovar povezav. Vrne množico, v kateri so vsi kraji, ki so sosedi podanih krajev in niso že vsebovani v množici kraji.
+
+Klic razsiri({"Ljubljana", "Lenart", "Žužemberk"}) vrne množico, v kateri so vsi kraji, ki so na spodnji sliki izpisani z belo.
+
+
+
+Napiši funkcijo razdalja(kraj1, kraj2, povezave), ki prejme imeni dveh krajev in slovar povezav. Kot rezultat vrne dolžino najkrajše poti iz kraj1 v kraj2. Pri tem z "dolžino poti" mislimo število povezav. Razdalja od Vrhnike do Laškega je 4.
+
+
+
+Ocena 10
+Napiši funkcijo razsiri2(kraji, povezave), ki počne zelo podobno reč kot razsiri, le da namesto množice vrne slovar. Ključi slovarja so kraji, do katerih je možno priti iz podane množice kraji, pripadajoče vrednosti pa povedo, iz katerega kraja pridemo vanje. V primeru iz predzadnje slike bi imeli ključ "Novo mesto" in pripadajoča vrednost bi bila "Žužemberk" ter ključ "Domžale" s pripadajočo vrednostjo "Ljubljana". Ključ "Velike Lašče" ima lahko pripadajočo vrednost "Ljubljana" ali "Žužemberk".
+
+Napiši funkcijo najkrajsa_pot(kraj1, kraj2, povezave), ki vrne najkrajšo pot (spet v smislu števila vmesnih krajev) iz kraj1 v kraj2. Klic najkrajsa_pot("Škofije", "Lenart", povezave) lahko vrne, recimo, ["Škofije", "Ilirska Bistrice", "Sodražica", "Žužemberk", "Novo mesto", "Radeče", "Šentjur", "Slovenska Bistrica", "Maribor", "Lenart"]. Zgolj recimo pa zato, ker to ni edina pot te dolžine - iz Šentjurja bi lahko šel tudi čez Rogaško Slatino in Ptuj. Funkcija mora vrniti eno od možnih najkrajših poti.

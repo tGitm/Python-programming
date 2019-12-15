@@ -1,0 +1,22 @@
+﻿Rim
+Rekurzivni nim - Rim
+Napisali boste nekaj funkcij, ki ste jih pisali za nalogo Nim - le da morajo tokrat biti rekurzivne.
+
+Obvezna naloga
+Napiši naslednje funkcije:
+
+vsota(s) vrne vsoto števil v podanem seznamu. To seveda že poznamo s predavanj, vendar vseeno sprogramiraj še enkrat. Sam(a). Vsoto, vemo, izračunamo tako, da k prvemu elementu prištejemo vsoto ostalih.
+
+vsebuje(s, x) vrne True, če seznam s vsebuje element x in False, če ga ne. Stvar je preprosta: prazen seznam očitno ne vsebuje x. Sicer pa preverimo, ali je prvi element enak x, ali pa je x vsebovan v preostanku seznama.
+
+najvecja_potenca(n) vrne največjo potenco števila 2, ki je manjša ali enaka podanemu števila n. Klic najvecja_potenca(22) vrne 16, saj bi bilo 32 že preveč. Klic najvecja_potenca(32) pa vrne 32. Predpostaviti smeš, da je n pozitivno celo število.
+
+Kako to narediti rekurzivno? Preprosto: največja potenca, ki gre v n, je dvakrat večja od največje potence, ki gre v n polovic (če uporabljamo celoštevilsko deljenje).
+
+Je to res?
+
+največja potenca, ki gre v 22 je dvakrat večja od največje potence, ki gre v 11;
+največja potenca, ki gre v 11, je dvakrat večja od največje potence, ki gre v 5;
+največja potenca, ki gre v 5, je dvakrat večja od največje potence, ki gre v 2;
+največja, potenca, ki gre v 2, je dvakrat večja od največje potence, ki gre v 1;
+največja potenca, ki gre v 1, je 1; (... torej je največja potenca, ki gre v 2, 2; torej gre v 5 4, torej gre v 11 8, torej gre v 22 16).

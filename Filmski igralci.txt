@@ -1,0 +1,65 @@
+﻿Filmski igralci
+Ta domača naloga se ocenjuje in vam ne sme manjkati.
+
+Za določeno oceno morate rešiti tudi vse naloge, potrebne za nižjo oceno. Za, na primer, oceno 7, morate rešiti tudi naloge za oceno 6 in tako naprej.
+
+Ocena 6
+Imamo seznam parov imen igralcev in filmov, v kateri so igrali, na primer
+
+[("Ana", "Od Čateža do Litije"),
+ ("Berta", "Od Čateža do Litije"),
+ ("Ana", "Harry Potter 4"),
+ ("Cilka", "Harry Potter 4"),
+ ("Berta", "Star Trek DS-9"),
+ ("Dani", "Harry Potter 4"),
+ ("Ema", "Star Trek DS-9"),
+]
+Če igralec igra v več filmih, se pojavi večkrat; tako je Ana igrala v Od Čateža do Litije in v Harry Potter 4.
+
+Napiši naslednje funkcije
+
+igralci(povezave) prejme seznam, kot je gornji, in vrne množico imen igralcev,
+filmi(povezave) vrne množico imen filmov,
+filmi_igralca(igralec, povezave) vrne množico imen filmov, v katerih je igral podani igralec,
+igralci_filma(film, povezave) vrne množico imen igralcev, ki so nastopali v podanem filmu,
+po_igralcih(povezave) vrne slovar, katerega ključi so imena igralcev, pripadajoče vrednosti pa množice imen filmov, v katerih so igrali ti igralci, na primer python {"Ana": {"Od Čateža do Litije", "Harry Potter 4"}, "Berta": {"Od Čateža do Litije", "Star Trek DS-9"}, "Cilka": {"Harry Potter 4"}, "Dani": {"Harry Potter 4"}, "Ema": {"Star Trek DS-9"} }
+po_filmih(povezave) vrne slovar, katerega ključi so filmi, pripadajoče vrednosti pa množice imen igralcev.
+Ocena 7
+Napiši funkcije
+
+soigralci(igralci_filmi), ki prejme takšen slovar, kot ga vrača funkcija po_igralcih, kot rezultat pa vrne množico parov igralcev, ki so se kdaj srečali v kakem filmu. Vsak par naj bo urejen po abecedi. Za gornji slovar bi funkcija vrnila {("Ana", "Berta"), ("Ana", "Cilka"), ("Ana", "Dani"), ("Berta", "Ema"), ("Cilka", "Dani")}. Tako, je, na primer, ("Berta" "Ema") v množici zato, ker sta Berta in Ema skupaj nastopali v "Star Trek DS-9".
+
+n_soigralcev(igralec, pari) prejme ime igralca in seznam parov, kakršnega vrača prejšnja funkcija. Vrne število vseh igralcev, s katerimi je kdaj sodeloval podani igralec. Klic n_soigralcev("Dani", pari) (kjer so pari gornji seznam parov), vrne 2, saj je Dani igrala skupaj z Ano in Cilko.
+
+soigralci_igralca(igralec, pari) dobi enake argumente kot prejšnja funkcija, kot rezultat pa vrne množico igralcev, s katerimi je sodeloval podani igralec. soigralci_igralca("Dani", pari) vrne {"Ana", "Cilka"}.
+
+Ocena 8
+Vse funkcije za oceno 6 in 7 napiši z uporabo izpeljanih slovarjev in množic, tako da bo funkcija vsebovala samo return *nekaj*.
+
+Ocena 9
+Moč povezave med dvema igralcema izračunamo tako, da preverimo, v koliko skupnih filmih sta igrala. Filme bi lahko preprosto prešteli ... vendar jih ne bomo, saj filmi z manj igralci vežejo močneje od takšnih, kjer je igralcev veliko. "Moč" filma je enaka 2 / kvadrat števila igralcev.
+
+Kako močno sta povezani Ana in Berta? Igrali sta v Od Čateža do Litije, ki ima 2 igralca, in v Harry Potter 4, ki ima (kot pove že ime) 4. Povezava med Ano in Berto je torej 2 / 2 ** 2 + 2 / 4 ** 2 = 2 / 4 + 2 / 16 = 10 / 16 = 0.625.
+
+Napiši funkciji:
+
+moc_povezave(igralec1, igralec2, povezave), ki kot argument dobi imeni dveh igralcev in seznam povezav v obliki iz naloge za oceno 6. Kot rezultat vrne moč povezave. Klic moc_povezave("Ana", "Berta", povezave) vrne 0.625;
+
+utezene_povezave(povezave) prejme le povezave, kot rezultat pa vrne slovar, katerega ključi so vsi pari imen igralcev (vsak par nastopa le enkrat in je urejen po abecedi), pripadajoče vrednosti pa so moči povezav, kot jih vrača prejšnja funkcija.
+
+Pa še nekaj: obe funkciji morata biti napisani v eni vrstici.
+
+Ocena 10
+Napiši funkciji
+
+povezani_z(igralec, pari), ki prejme ime igralca in seznam parov igralcev, ki so kdaj sodelovali. Kot rezultat množico imen vseh igralcev, ki so sodelovali s katerim od igralcev, ki je sodeloval s katerim od igralcev, ki je sodeloval s katerim od igralcev ... ki je sodeloval s podanim igralcem. Rezultat vključuje tudi podanega igralca samega.
+
+Klic povezani_z("Ana", [("Ana", "Berta"), ("Berta", "Cilka"), ("Dani", "Ema"), ("Berta", "Fanči"), ("Greta", "Helga")] vrne množico {"Ana", "Berta", "Cilka", "Fanči"}; Ana je sicer neposredno sodelovala le z Berto, vendar je ta sodelovala tudi s Cilko in Fanči.
+
+Klic povezani_z("Ana", [("Ana", "Berta"), ("Berta", "Cilka"), ("Dani", "Ema"), ("Berta", "Fanči"), ("Greta", "Helga"), ("Ema", "Fanči")]) vrne {"Ana", "Berta", "Cilka", "Dani", "Ema", "Fanči"}. V primerjavi s prejšnjim klicem imamo še par Ema in Fanči, ki z Ano (prek Berte in Fanči), poveče še Emo, prek Eme pa še Dani.
+
+otoki(pari) vrne seznam vseh "otokov" nepovezanih igralcev. Vsak otok je predstavljen z množico. Vrstni red otokov v seznamu je poljuben.
+
+Klic otoki([("Ana", "Berta"), ("Berta", "Cilka"), ("Dani", "Ema"), ("Berta", "Fanči"), ("Greta", "Helga")]) vrne [{"Ana", "Berta", "Cilka", "Fanči"}, {"Dani", "Ema"}, {"Greta", "Helga"}].
+
+Klic otoki([("Ana", "Berta"), ("Berta", "Cilka"), ("Dani", "Ema"), ("Berta", "Fanči"), ("Greta", "Helga"), ("Ema", "Fanči")]) vrne [{"Ana", "Berta", "Cilka", "Fanči", "Dani", "Ema"}, {"Greta", "Helga"}].

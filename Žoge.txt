@@ -1,0 +1,12 @@
+﻿Žoge
+Oglej si igro Chain Reaction.
+
+Za oceno 6: Sestavi program, ki nariše eno kroglico naključne barve, ki se pojavi na naključnem mestu in giba v naključni smeri (glej detajle spodaj!). Ko pride do roba, se odbije, tako kot ste se učili pri Fiziki. Odbija naj se približno dvajset sekund, nato se program konča.
+
+Za oceno 7: Enako kot za oceno 6, vendar mora program risati in voditi 30 žog različnih naključnih barv, ki se gibajo v različnih naključnih smereh.
+
+Za oceno 8: Poleg tega, kar ste naredili za oceno 7, naj bo na sliki še krog, katerega središče je tam, kjer je trenutno miška (in se seveda premika z miško). Ko uporabnik klikne, naj krog obstane, kjer je in ne sledi več miški. Program naj se konča, ko prva izmed žogic zadane žogo, ki smo jo postavili z miško.
+
+Za oceno 9: Sprogramirajte eno stopnjo igre. Igra teče, dokler je kaj eksplodiranih krogel, ko izgine zadnja, pa se izpiše, koliko žog je eksplodiralo. S tem se program konča.
+
+Za oceno 10: Sprogramirajte igro z 10 stopnjami. Na začetku vsake stopnje se napiše, koliko žog je v igri in koliko jih je eksplodiralo. Na koncu, ko izgine zadnja eksplodirana krogla, se igra nadaljuje na naslednji stopnji, če je eksplodiralo dovolj žog. Sicer pa se pojavi okno, v katerem piše, koliko žog je eksplodiralo in da je to premalo; igra se ponovi na isti stopnji. Izmislite smiselna števila žog. Stopnje se morajo seveda razlikovati.

@@ -1,0 +1,52 @@
+﻿Zaspani stražarji
+Tole je četrta naloga z letošnjega Advent of Code, le da sem jo razdelil v funkcije, tako da bo malo težje uporabiti rešitve s spleta. Ne bo si nemogoče pomagati z njimi, vendar predlagam, da tega ne počnete, saj se tako ne boste naučili ničesar.
+
+Za začetek si lahko preberete originalno nalogo.
+
+Obvezna naloga
+Napisati bo potrebno pet funkcij, a ne bo hudega. Prva in tretja sta zelo podobni nalogam z vaj. Pri drugi si lahko zelo pomagate s primerom s predavanj, ki je objavljen ob domači nalogi. Četrta je naloga za začetek Programiranja 1, peta pa nezahtevna vaja iz slovarjev.
+
+razberi(vrstica) dobi niz takšne oblike, kot so vrstice v podani datoteki (in v spodnjih primerih), in vrne terko, ki vsebuje (leto, mesec, dan, ura, minuta, kaj, kdo). Prvih pet stvari so števila; kaj pomenijo, je očitno. kaj je niz, ki vsebuje besedo, ki sledi časovni oznaki v oklepajih, to je "Guard", "falls" ali "wakes". kdo je številka stražarja, če gre za vrstico, ki opisuje stražarja (torej, če je kaj enak "Guard"), sicer pa je enak None.
+
+razberi("[1518-11-09 23:58] Guard #853 begins shift") vrne (1518, 11, 9, 23, 58, "Guard", 853),
+razberi("[1518-04-02 00:30] falls asleep") vrne (1518, 4, 2, 0, 30, "falls", None),
+razberi("[1518-08-11 00:47] wakes up") vrne (1518, 8, 11, 0, 47, "wakes", None).
+Nasvet: razbij po presledkih, naprej pa si pomagaj tako, da veš, od katerega do katerega znaka niza so zapisani leto, mesec, dan, ura in minuta.
+
+preberi_datoteko(ime_datoteke) prejme ime datoteke in iz nje prebere podatke o tem, kako so stražarji zaspali in se budili. Zloži jih v seznam trojk, ki vsebuje številko stražarja, minuto, v kateri je zaspal, in minuto, v kateri se je zbudil. Če datoteka vsebuje
+
+[1518-11-01 00:00] Guard #10 begins shift
+[1518-11-01 00:05] falls asleep
+[1518-11-01 00:25] wakes up
+[1518-11-01 00:30] falls asleep
+[1518-11-01 00:55] wakes up
+[1518-11-01 23:58] Guard #99 begins shift
+[1518-11-02 00:40] falls asleep
+[1518-11-02 00:50] wakes up
+[1518-11-03 00:05] Guard #10 begins shift
+[1518-11-03 00:24] falls asleep
+[1518-11-03 00:29] wakes up
+funkcija vrne
+
+[(10, 5, 25),
+ (10, 30, 55),
+ (99, 40, 50),
+ (10, 24, 29)]
+Problem: vrstice datoteke niso urejene. Do urejenih vrstic pridete tako, da namesto open(blabla) napišete sorted(open(blabla)).
+
+Lahko si pomagaš s prejšnjo funkcijo in zavržeš vse tisto, česar ne potrebuješ.
+
+izpis_dogodka(strazar, spi, zbudi) prejme podatke (tri številke) o tem, kdaj je nek stražar zaspal in kdaj se je zbudil, kot rezultat pa vrne niz z izpisom tega dogodka. Klic izpis_dogodka(1945, 5, 42) vrne "1945: 05-42" in izpis_dogodka(19, 13, 42) vrne "  19: 13-42". Številka stražarja vedno zavzame štiri mesta; ure in minute so poravnane tako, da imajo spredaj 0.
+
+Poravnavo z ničlami dosežemo tako, da pred število mest dodamo 0:
+
+>>> x = 42
+>>> f"{x:06}"
+'000042'
+naj_drugi(pari) prejme seznam parov. Poišče največji drugi element in vrne pripadajoči prvi element. Klic naj_drugi([(5, 3), (8, 9), (13, 5), (10, 7)]) vrne 8: največji drugi element je 9 in pripadajoči prvi element je 8.
+
+naj_zaspanec(dogodki) prejme seznam trojk s številko stražarja in minuto, ko je zaspal in ko se je zbudil. Vrne številko stražarja, ki je skupno (ne le enkrat, temveč če seštejemo vse njegovo spanje) prespal največ minut.
+
+Če stražar zaspi ob minuti 5 in se zbudi ob minuti 8, to pomeni, da je spal ob minutah 5, 6 in 7, torej je spal tri minute.
+
+Noben stražar ne zaspi pred polnočjo in noben ne spi po 1:00, zato dolžino spanja vedno dobiš tako, da odšteješ drugo številko od tretje.
